@@ -5,14 +5,13 @@ var webpack = require("webpack");
 
 module.exports = {
   devtool: "source-map",
-  entry: [
-    "webpack-hot-middleware/client",
-    "babel-polyfill",
-    "./index"
-  ],
+  entry: {
+    index: ["webpack-hot-middleware/client", "babel-polyfill", "./index"],
+    second: ["webpack-hot-middleware/client", "babel-polyfill", "./second"]
+  },
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     publicPath: "/dist/"
   },
   plugins: [

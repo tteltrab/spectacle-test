@@ -56,10 +56,7 @@ export default class Presentation extends React.Component {
         <Deck transition={["zoom", "slide"]} transitionDuration={500}>
           <Slide transition={["zoom"]} bgColor="primary">
             <Heading size={1} fit caps lineHeight={1} textColor="black">
-              Page 1 Slides
-            </Heading>
-            <Heading size={1} fit caps>
-              A ReactJS Presentation Library
+              Page 2 Slides
             </Heading>
             <Heading size={1} fit caps textColor="black">
               Where You Can Write Your Decks In JSX

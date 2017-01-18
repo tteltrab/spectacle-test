@@ -4,13 +4,13 @@ var path = require("path");
 var webpack = require("webpack");
 
 module.exports = {
-  entry: [
-    "babel-polyfill",
-    "./index"
-  ],
+  entry: {
+    index: ["babel-polyfill", "./index"],
+    second: ["babel-polyfill", "./second"]
+  },
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
     publicPath: "/dist/"
   },
   plugins: [
@@ -41,11 +41,21 @@ module.exports = {
       test: /\.css$/,
       loader: "style-loader!css-loader"
     }, {
-      test: /\.(png|jpg|gif)$/,
-      loader: "url-loader?limit=8192"
-    }, {
       test: /\.svg$/,
-      loader: "url?limit=10000&mimetype=image/svg+xml"
+      loader: "url?limit=10000&mimetype=image/svg+xml",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.png$/,
+      loader: "url-loader?mimetype=image/png",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.gif$/,
+      loader: "url-loader?mimetype=image/gif",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.jpg$/,
+      loader: "url-loader?mimetype=image/jpg",
+      include: path.join(__dirname, "assets")
     }]
   }
 };
